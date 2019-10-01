@@ -1,0 +1,28 @@
+O que é uma aplicação proprietária da Internet? Cite 5 e seus protocolos;?
+Quais são as camadas de rede?;?
+Por que aplicações em rede podem ser facilmente distribuídas?;?
+O que é uma arquitetura de aplicação em rede? Cite 3;?
+Dada uma comunicação entre dois processos, qual é cliente e qual é servidor?;?
+Qual informação é necessária para identificar um processo executando em outro host?;?
+O que é um protocolo da camada de aplicação?;?
+Quais requisitos são tipicamente demandados por uma aplicação em rede?;?
+Quais são os principais serviços de transporte oferecidos pela internet? Quais suas características?;?
+Diferencie TCP e UDP, e cite 3 aplicações que usem cada protocolo;?
+Qual a função do HTTP?;?
+Diferencia conecxões persistentes de não-persistentes;?
+Diferencie POST e GET do HTTP;?
+Vantagens de utilizar web cache;?
+Função do FTP;?
+Diferencie HTTP e FTP no que diz respeto a troca de dados e informações de controle;?
+Por que pode-se dizer que o protocolo FTP mantém o estado da conexão?;?
+Qual a função do SMTP?;?
+Qual a função do POP?;?
+Qual a função do IMAP?;?
+Quando é necessário usar POP e IMAP?;?
+Qual a função do protocolo DNS?;?
+Por que DNS usa base de dados distribuída?;?
+Diferencie consultas DNS iterativas e recursivas;?
+Como funciona cache em DNS?;?
+Descreva os tipos de registro de recursos do DNS;?
+Por que aplicações par-a-par são escaláveis?;?
+Compare o atraso entre uma aplicação cliente-servidor e o atraso em um aplicação par-a-par;?

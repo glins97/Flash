@@ -1,0 +1,50 @@
+#:import colors view.colors
+<FlasherScreen>: 
+    question_label: question_label
+    answer_label: answer_label
+    canvas:
+        Color:
+            rgba: colors['grey_4']
+        Rectangle:
+            size: self.size
+            pos: 0, 0
+
+    RelativeLayout:
+        id: question_layout
+        size_hint: 0.666, 0.666
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        canvas.before:
+            Color:
+                rgba: colors['grey_3']
+            RoundedRectangle:
+                size: self.size
+                radius: [15,]
+                pos: 0, 0
+        Label:
+            id: question_label
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: 0.85, 0.85
+            text_size: self.size
+            valign: 'center'
+            halign: 'center'
+
+    RelativeLayout:
+        id: answer_layout
+        opacity: 0
+        size_hint: question_layout.size_hint
+        pos_hint: question_layout.pos_hint
+        canvas.before:
+            Color:
+                rgba: colors['grey_3']
+            RoundedRectangle:
+                size: self.size
+                radius: [15,]
+                pos: 0, 0
+        Label:
+            id: answer_label
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            size_hint: 0.85, 0.85
+            text_size: self.size
+            valign: 'center'
+            halign: 'center'
+    

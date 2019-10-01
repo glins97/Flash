@@ -1,0 +1,16 @@
+#:import colors view.colors
+#:import FlasherScreen controller.flasher.FlasherScreen
+
+<FlashRoot>:
+    canvas:
+        Color:
+            rgba: colors['grey_4']
+        Rectangle:
+            size: self.size
+            pos: 0, 0
+
+    ScreenManager:
+        id: screen_manager
+        size_hint: 1, 1
+        FlasherScreen:
+        
