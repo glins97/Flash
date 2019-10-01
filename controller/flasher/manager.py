@@ -1,39 +1,56 @@
-from random import choice
+from random import randint
 
 class FlasherManager(object):
     def __init__(self, filename, *args, **kwargs):
         self.filename = filename
         self.questions = {}
-        self.q_keys = []
+        self.questions_listed = []
+        self.current_question_index = -1
         self.state = 'q'
         self.screen = None
         self.load()
-
-    def next(self):
+    
+    def toggle_card_view(self):
         if self.state == 'q':
             self.state = 'a'
             self.screen.show_answer();            
 
         elif self.state == 'a':
             self.state = 'q'
-            self.screen.update_set()
             self.screen.show_question();            
 
-    def request_set(self):
-        q = self.request_question()
+    def show_next_card(self):
+        q = self.request_next_question()
         a = self.request_answer(q)
-        return q, a
-        
-    def request_question(self):
-        return choice(self.q_keys)
+        self.screen.update_cards(q, a)
+        self.screen.show_question();     
+
+    def show_previous_card(self):
+        q = self.request_previous_question()
+        a = self.request_answer(q)
+        self.screen.update_cards(q, a)
+        self.screen.show_question();            
+
+    def request_previous_question(self):    
+        self.current_question_index -= 1
+        return self.questions_listed[self.current_question_index]
+
+    def request_next_question(self):
+        self.current_question_index += 1
+        return self.questions_listed[self.current_question_index]
 
     def request_answer(self, question):
         return self.questions[question]['answer']
 
     def keyboard_hook(self, window, key, *largs):
         if key == 13 or key == 271: # enter
-            self.next()
+            self.toggle_card_view()
 
+        if key == 275:
+            self.show_next_card()
+        if key == 276:
+            self.show_previous_card()
+            
     def load(self):
         self.questions = {}
         src = ''
@@ -45,4 +62,7 @@ class FlasherManager(object):
             question, answer = line.split(';')
             self.questions[question] = {'answer': answer}
         
-        self.q_keys = list(self.questions.keys())
+        self.questions_listed = []
+        keys = list(self.questions.keys())
+        while keys:
+            self.questions_listed.append(keys.pop(randint(0, len(keys) - 1)))
