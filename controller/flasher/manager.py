@@ -1,6 +1,6 @@
 from random import choice
 
-class Flasher(object):
+class FlasherManager(object):
     def __init__(self, filename, *args, **kwargs):
         self.filename = filename
         self.questions = {}

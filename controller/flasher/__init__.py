@@ -1,2 +1,2 @@
-from .flasher import Flasher
+from .manager import FlasherManager
 from .screen import FlasherScreen

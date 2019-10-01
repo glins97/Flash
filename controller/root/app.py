@@ -4,7 +4,7 @@
 from kivy.app import App
 from kivy.config import Config
 from .root import FlashRoot
-from controller.flasher import Flasher
+from controller.flasher import FlasherManager
 from kivy.base import EventLoop
 
 
@@ -25,7 +25,7 @@ class Flash(App):
 		
 	def build(self):
 		self.set_window_size()
-		self.flasher = Flasher('sources/rc1.csv')
+		self.flasher = FlasherManager('sources/rc1.csv')
 		self.keyboard_listeners.append(self.flasher.keyboard_hook)
 		self.root = FlashRoot()
 		self.root.app = self
