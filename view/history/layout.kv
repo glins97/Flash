@@ -1,0 +1,17 @@
+#:import colors view.colors
+<HistoryLayout>:
+    size_hint: 1, None
+    height: 25
+    GridLayout:
+        id: grid_layout
+        size_hint: None, None
+        size: self.minimum_width, 25
+        rows: 1
+        spacing: 5
+        orientation: 'rl-tb'
+        canvas:
+            Color:
+                rgba: colors['grey_4']
+            Rectangle:
+                size: self.size
+                pos: 0, 0

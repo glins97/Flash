@@ -1,0 +1,11 @@
+#:import colors view.colors
+<HistorySelector>:
+    background_down: self.background_normal
+    background_color: 
+        [1, 0, 0, 1] if self.status == 'r' else \
+        [0, 1, 0, 1] if self.status == 'g' else \
+        [0.8, 0.8, 0.8, 1]
+    on_press:
+        app.history.currently_displaying = True
+        app.flasher.current_question_index -= 1
+        app.flasher.screen.update_cards(self.question, self.answer)

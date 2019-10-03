@@ -25,16 +25,6 @@ class FlasherManager(object):
         self.screen.update_cards(q, a)
         self.screen.show_question();     
 
-    def show_previous_card(self):
-        q = self.request_previous_question()
-        a = self.request_answer(q)
-        self.screen.update_cards(q, a)
-        self.screen.show_question();            
-
-    def request_previous_question(self):    
-        self.current_question_index -= 1
-        return self.questions_listed[self.current_question_index]
-
     def request_next_question(self):
         self.current_question_index += 1
         return self.questions_listed[self.current_question_index]
@@ -46,10 +36,8 @@ class FlasherManager(object):
         if key == 13 or key == 271: # enter
             self.toggle_card_view()
 
-        if key == 275:
+        if key in [273, 274, 275]:
             self.show_next_card()
-        if key == 276:
-            self.show_previous_card()
             
     def load(self):
         self.questions = {}
