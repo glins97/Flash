@@ -26,15 +26,15 @@ class FlasherScreen(Screen):
         self.answer_label.text = a
 
     def show_answer(self):
-        Animation.stop_all(self.ids.answer_layout)
-        Animation.stop_all(self.ids.question_layout)
-        Animation(opacity=0, t='out_quad', d=0.5).start(self.ids.question_layout)
-        (Animation(t='in_quad', d=0.2) + Animation(opacity=1, t='in_quad', d=1)).start(self.ids.answer_layout)
+        Animation.stop_all(self.answer_label)
+        Animation.stop_all(self.question_label)
+        Animation(opacity=0, t='out_quad', d=0.5).start(self.question_label)
+        (Animation(t='in_quad', d=0.2) + Animation(opacity=1, t='in_quad', d=1)).start(self.answer_label)
 
     def show_question(self):
-        Animation.stop_all(self.ids.answer_layout)
-        Animation.stop_all(self.ids.question_layout)
-        Animation(opacity=0, t='out_quad', d=0.5).start(self.ids.answer_layout)
-        (Animation(t='in_quad', d=0.2) + Animation(opacity=1, t='in_quad', d=1)).start(self.ids.question_layout)
+        Animation.stop_all(self.answer_label)
+        Animation.stop_all(self.question_label)
+        Animation(opacity=0, t='out_quad', d=0.5).start(self.answer_label)
+        (Animation(t='in_quad', d=0.2) + Animation(opacity=1, t='in_quad', d=1)).start(self.question_label)
 
         
